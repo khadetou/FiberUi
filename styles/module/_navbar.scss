@@ -1,0 +1,149 @@
+.header {
+  background-color: $mainColor;
+  height: 7.5rem;
+  position: relative;
+  z-index: 10000;
+
+  &::after {
+    content: "";
+    position: absolute;
+    opacity: 1;
+    z-index: 1;
+    background-color: $secondColor;
+    height: 0vh;
+    width: 100%;
+    transition: all ease-in-out 0.5s;
+  }
+
+  @include responsive(mobile) {
+    &::after {
+      content: "";
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10000;
+  }
+
+  &__logo {
+    font-size: $logoSize;
+    cursor: pointer;
+    margin-right: 0.625rem;
+
+    @include responsive(tablet) {
+      margin-left: 0;
+    }
+  }
+  &__buttons {
+    position: absolute;
+    top: 294px;
+    left: 40px;
+    @include responsive(mobile) {
+      position: static;
+      margin-left: 0;
+    }
+  }
+  &__nav {
+    position: absolute;
+    top: 136px;
+    left: 40px;
+
+    @include responsive(mobile) {
+      position: static;
+    }
+  }
+
+  &__ul {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+
+    @include responsive(mobile) {
+      flex-direction: row;
+      margin-top: 0.5625rem;
+      visibility: visible;
+    }
+  }
+
+  &__li {
+    margin-right: 0.6875rem;
+    border-bottom: solid 1px transparent;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+      border-bottom: solid 2px $white;
+    }
+
+    @include responsive(tablet) {
+      margin-right: 1.6875rem;
+    }
+
+    @include responsive(mobile) {
+      border-bottom: solid 2px transparent;
+      margin-bottom: 0;
+      &:hover a {
+        color: $secondColor;
+      }
+      &:hover {
+        border-bottom: solid 2px $secondColor;
+      }
+    }
+  }
+
+  &__a {
+    font-weight: $normalSize;
+    color: $white;
+
+    transition: all ease-in-out 0.5s;
+    @include responsive(mobile) {
+      color: $darkColor;
+    }
+  }
+
+  &__signin {
+    font-weight: $normalSize;
+    font-weight: 600;
+    color: $white;
+    visibility: hidden;
+    transition: 0.5s;
+
+    @include responsive(mobile) {
+      color: $darkColor;
+      visibility: visible;
+    }
+  }
+
+  &__signup {
+    margin-left: 0.625rem;
+    padding: 11.5px 14.5px !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    visibility: hidden;
+    transition: 0.5s;
+
+    @include responsive(tablet) {
+      padding: 19.5px 30.5px !important;
+      margin-left: 3.125rem;
+    }
+    @include responsive(mobile) {
+      background-color: $secondColor !important;
+      visibility: visible;
+    }
+  }
+
+  &__menu {
+    display: block;
+    @include responsive(mobile) {
+      display: none;
+    }
+  }
+}

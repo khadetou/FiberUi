@@ -1,0 +1,11 @@
+.show {
+  &::after {
+    height: 85vh;
+  }
+  ul {
+    visibility: visible;
+  }
+  a {
+    visibility: visible;
+  }
+}

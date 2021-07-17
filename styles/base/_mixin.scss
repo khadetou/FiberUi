@@ -1,0 +1,19 @@
+@mixin responsive($bkr) {
+  @if $bkr == mobile {
+    @media (min-width: 528px) {
+      @content;
+    }
+  }
+
+  @if $bkr == tablet {
+    @media (min-width: 801px) {
+      @content;
+    }
+  }
+
+  @if $bkr == laptop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
